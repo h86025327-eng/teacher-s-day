@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teacher's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500&display=swap">
+</head>
+<body>
+    <div class="flowers">🌷</div>
+    <div class="flowers flower2">🌸</div>
+    <div class="flowers flower3">🌺</div>
+    <main class="container">
+        <p class="small-title">A little surprise for you</p>
+        <h1>Happy Teacher's Day</h1>
+        <p class="subtitle">A little website to say a big thank you</p>
+        <button id="openButton">Open your Surprise✨</button>
+        <div id="message" class="message">
+            <h2>Dear Teacher</h2>
+            <p>Thank you for making English more than just a subject.
+                Your patience, encouragement and passion for teaching have made every lesson more meaningful.
+            </p>
+            <p>Thank you for believing in us and inspiring us to keep learning.🤍</p>
+            <div class="line"></div>
+                <p class="quote">"Great teachers leave memories that last forever."</p>
+                <p class="signature">With gratitude,<br>
+                <span>Your studants🌹</span></p>
+        </div>
+    </main>
+    <div id="petals"></div>
+    <script>
+        const openButton=document.getElementById("openButton");
+        const message= document.getElementById("message");
+        const petals=document.getElementById("petals");
+        openButton.addEventListener("click", function(){message.classList.add("show");
+            openButton.style.display="none"
+            creatPetals()
+        });
+        function creatPetals(){
+            for(let i =0; i< 25; i++){
+                const petal=document.createElement("div");
+                petal.classList.add("petal");
+                petal.innerText=
+                flowers[Math.floor(Math.random()*flowers.length)];
+                petal.style.left=Math.random()*100+"vw"
+                petal.style.animationDuration= 3+Math.random()*3+"s";
+                petals.appendChild(petal);
+                setTimeout(() => {
+                    petal.remove();
+                }, 6000);
+            }
+            
+        }
+    </script>
+</body>
+</html>
